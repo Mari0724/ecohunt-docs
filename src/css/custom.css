@@ -1,0 +1,200 @@
+/* ======================================== */
+/*              FUENTES ECOHUNT             */
+/* ======================================== */
+
+/* Pixel para títulos */
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
+
+
+
+/* ======================================== */
+/*        PALETA GLOBAL ECOHUNT             */
+/* ======================================== */
+
+:root {
+  --ecohunt-green-light: #4CC773;
+  --ecohunt-green: #4CAF50;
+  --ecohunt-green-mid: #72C74C;
+  --ecohunt-green-dark: #2F6232;
+
+  --ecohunt-blue: #3CB1D3;
+  --ecohunt-blue-light: #44A2E0;
+  --ecohunt-blue-dark: #3AAED8;
+
+  --ecohunt-soft: #FFF5E9;
+  --ecohunt-soft-light: #FFF5E9;
+  --ecohunt-soft-pink: #FFEDF5;
+  --ecohunt-soft-orange: #FFEBE0;
+
+  --ecohunt-gray: #6D6D6D;
+}
+
+
+
+/* ======================================== */
+/*      TIPOGRAFÍA PARA TÍTULOS (PIXEL)     */
+/* ======================================== */
+
+h1, h2, h3 {
+  font-family: 'Pixelify Sans', sans-serif;
+  letter-spacing: 1px;
+}
+
+
+
+/* ======================================== */
+/*           BOTONES PERSONALIZADOS         */
+/* ======================================== */
+
+.button--lg {
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Botón primario (verde) */
+.button--primary {
+  background-color: var(--ecohunt-green);
+  color: white;
+  border: none;
+}
+
+.button--primary:hover {
+  background-color: var(--ecohunt-green-dark);
+  transform: translateY(-2px);
+}
+
+/* Botón secundario (blanco / borde eco) */
+.button--secondary {
+  background-color: white;
+  color: #222;
+  border: 2px solid var(--ecohunt-green);
+}
+
+.button--secondary:hover {
+  background-color: var(--ecohunt-soft-light);
+  transform: translateY(-2px);
+}
+
+
+
+/* ======================================== */
+/*        HOVER GLOBAL EN NAVBAR            */
+/* ======================================== */
+
+.navbar__item:hover {
+  color: var(--ecohunt-green) !important;
+}
+
+
+
+/* ======================================== */
+/*         MODO OSCURO - BOTONES            */
+/* ======================================== */
+
+html[data-theme='dark'] .button--secondary {
+  background-color: #333;
+  border: 2px solid var(--ecohunt-green);
+  color: white;
+}
+
+html[data-theme='dark'] .button--secondary:hover {
+  background-color: #444;
+}
+
+html[data-theme='dark'] .button--primary {
+  background-color: var(--ecohunt-green-dark);
+  color: white;
+}
+
+
+
+/* ======================================== */
+/*       ECOHUNT PIXEL-ART DARK MODE        */
+/* ======================================== */
+
+html[data-theme='dark'] {
+  --ifm-background-color: #0e1511; /* Fondo verde oscuro */
+  --ifm-background-surface-color: #111c17;
+  --ifm-color-primary: var(--ecohunt-blue-dark);
+  --ifm-navbar-background-color: #0a120e;
+  --ifm-card-background-color: #15231d;
+  --ifm-font-color-base: #d1f2e0; /* Pastel verde */
+}
+
+/* Navbar dark retro */
+html[data-theme='dark'] .navbar {
+  background-color: #0a120e !important;
+  box-shadow: 0 2px 8px rgba(0, 255, 170, 0.1);
+}
+
+/* Logo glow */
+html[data-theme='dark'] .navbar__logo img {
+  filter: drop-shadow(0px 0px 4px rgba(0, 255, 200, 0.3));
+}
+
+/* Links retro */
+html[data-theme='dark'] .navbar__item,
+html[data-theme='dark'] a {
+  color: #9bead3 !important;
+}
+
+html[data-theme='dark'] a:hover {
+  color: var(--ecohunt-blue-light) !important;
+  text-shadow: 0 0 4px rgba(100, 255, 220, 0.3);
+}
+
+/* Cards estilo terminal pixel-art */
+html[data-theme='dark'] .card {
+  background: #15231d !important;
+  border: 1px solid rgba(100, 255, 180, 0.08);
+  box-shadow: 0 0 8px rgba(0, 255, 170, 0.05);
+}
+
+/* Código estilo CRT */
+html[data-theme='dark'] pre code {
+  background-color: #0a120e !important;
+  color: #b7ffe0 !important;
+  text-shadow: 0 0 3px rgba(0, 255, 200, 0.15);
+}
+
+/* CRT subtle scanlines */
+html[data-theme='dark'] pre {
+  background: repeating-linear-gradient(
+    to bottom,
+    #0a120e,
+    #0a120e 2px,
+    #0c1814 3px
+  ) !important;
+}
+
+/* Subtítulos/párrafos */
+html[data-theme='dark'] p,
+html[data-theme='dark'] h2,
+html[data-theme='dark'] h3 {
+  color: #d4f7e6 !important;
+}
+
+/* Code inline */
+html[data-theme='dark'] code {
+  background-color: #12221c !important;
+  color: #9affd4 !important;
+}
+
+/* Tablas */
+html[data-theme='dark'] table {
+  background-color: #15231d !important;
+}
+
+html[data-theme='dark'] th,
+html[data-theme='dark'] td {
+  border-color: rgba(100, 255, 180, 0.1) !important;
+}
+
+/* Footer oscuro */
+html[data-theme='dark'] .footer {
+  background-color: #0a120e !important;
+  color: #9bead3 !important;
+}
