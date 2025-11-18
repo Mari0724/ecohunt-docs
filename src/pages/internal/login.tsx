@@ -1,7 +1,24 @@
 import React from "react";
 import Layout from "@theme/Layout";
+import { auth, githubProvider } from "../../auth/firebase";
+import { signInWithPopup, browserPopupRedirectResolver } from "firebase/auth";
 
 export default function LoginPage() {
+
+  const handleLogin = async () => {
+    try {
+      await signInWithPopup(auth, githubProvider, browserPopupRedirectResolver);
+
+      if (typeof window !== "undefined") {
+        window.location.assign("/internal");
+      }
+
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+      alert("Error al iniciar sesión. Revisa la consola para más detalles.");
+    }
+  };
+
   return (
     <Layout title="Acceso Interno">
       <main
@@ -13,10 +30,14 @@ export default function LoginPage() {
         }}
       >
         <h1>Acceso Interno</h1>
-        <p>Pronto podrás iniciar sesión para acceder a la documentación privada.</p>
+        <p>Inicia sesión con tu cuenta autorizada.</p>
 
-        <button className="button button--primary" disabled>
-          Iniciar sesión (deshabilitado)
+        <button
+          className="button button--primary button--lg"
+          style={{ marginTop: "20px" }}
+          onClick={handleLogin}
+        >
+          Iniciar sesión con GitHub
         </button>
       </main>
     </Layout>

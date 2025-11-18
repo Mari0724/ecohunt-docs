@@ -115,13 +115,21 @@ html[data-theme='dark'] .button--primary {
 /*       ECOHUNT PIXEL-ART DARK MODE        */
 /* ======================================== */
 
+
+/* ------ BASE DEL MODO OSCURO ------ */
 html[data-theme='dark'] {
-  --ifm-background-color: #0e1511; /* Fondo verde oscuro */
+  --ifm-background-color: #0e1511; 
   --ifm-background-surface-color: #111c17;
-  --ifm-color-primary: var(--ecohunt-blue-dark);
+
+  /* color primario (links/botones) */
+  --ifm-color-primary: var(--ecohunt-blue-light);
+
+  /* navbar y cards */
   --ifm-navbar-background-color: #0a120e;
   --ifm-card-background-color: #15231d;
-  --ifm-font-color-base: #d1f2e0; /* Pastel verde */
+
+  /* TEXTO BASE completamente blanco */
+  --ifm-font-color-base: #ffffff;
 }
 
 /* Navbar dark retro */
@@ -130,15 +138,17 @@ html[data-theme='dark'] .navbar {
   box-shadow: 0 2px 8px rgba(0, 255, 170, 0.1);
 }
 
-/* Logo glow */
+/* Logo glow suave */
 html[data-theme='dark'] .navbar__logo img {
   filter: drop-shadow(0px 0px 4px rgba(0, 255, 200, 0.3));
 }
 
-/* Links retro */
+
+
+/* ------ LINKS ------ */
 html[data-theme='dark'] .navbar__item,
 html[data-theme='dark'] a {
-  color: #9bead3 !important;
+  color: #b3dfff !important; /* azul suave */
 }
 
 html[data-theme='dark'] a:hover {
@@ -146,21 +156,29 @@ html[data-theme='dark'] a:hover {
   text-shadow: 0 0 4px rgba(100, 255, 220, 0.3);
 }
 
-/* Cards estilo terminal pixel-art */
+
+
+/* ------ CARDS PRIVADAS ------ */
 html[data-theme='dark'] .card {
   background: #15231d !important;
-  border: 1px solid rgba(100, 255, 180, 0.08);
-  box-shadow: 0 0 8px rgba(0, 255, 170, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
 }
 
-/* Código estilo CRT */
+
+
+/* ------ CÓDIGO Y BLOQUES ------ */
 html[data-theme='dark'] pre code {
   background-color: #0a120e !important;
-  color: #b7ffe0 !important;
-  text-shadow: 0 0 3px rgba(0, 255, 200, 0.15);
+  color: #ffffff !important;
 }
 
-/* CRT subtle scanlines */
+html[data-theme='dark'] code {
+  background-color: #12221c !important;
+  color: #ffffff !important;
+}
+
+/* Efecto scanlines retro */
 html[data-theme='dark'] pre {
   background: repeating-linear-gradient(
     to bottom,
@@ -170,31 +188,32 @@ html[data-theme='dark'] pre {
   ) !important;
 }
 
-/* Subtítulos/párrafos */
+
+
+/* ------ TIPOS DE TEXTO (TÍTULOS, PÁRRAFOS) ------ */
 html[data-theme='dark'] p,
+html[data-theme='dark'] h1,
 html[data-theme='dark'] h2,
 html[data-theme='dark'] h3 {
-  color: #d4f7e6 !important;
+  color: #ffffff !important;
 }
 
-/* Code inline */
-html[data-theme='dark'] code {
-  background-color: #12221c !important;
-  color: #9affd4 !important;
-}
 
-/* Tablas */
+
+/* ------ TABLAS ------ */
 html[data-theme='dark'] table {
   background-color: #15231d !important;
 }
 
 html[data-theme='dark'] th,
 html[data-theme='dark'] td {
-  border-color: rgba(100, 255, 180, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Footer oscuro */
+
+
+/* ------ FOOTER ------ */
 html[data-theme='dark'] .footer {
   background-color: #0a120e !important;
-  color: #9bead3 !important;
+  color: #ffffff !important;
 }

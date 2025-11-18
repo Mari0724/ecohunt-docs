@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
@@ -60,88 +60,45 @@ const config: Config = {
       defaultMode: 'light', // puedes poner 'dark' si quieres que arranque oscuro
     },
 
-    /* ==============================
-       NAVBAR PERSONALIZADO ECOHUNT
-       ============================== */
+ 
     navbar: {
       title: 'EcoHunt',
       logo: {
         alt: 'EcoHunt Logo',
-        src: 'img/logo.png', // <-- Usa tu logo
+        src: 'img/logo.png',
       },
-      items: [
-        {
-          to: '/docs/sobre-el-juego/introduccion',
-          label: 'Sobre el juego',
-          position: 'left',
-        },
-        {
-          to: '/docs/historia/overview',
-          label: 'Historia',
-          position: 'left',
-        },
-        {
-          to: '/docs/mecanicas/overview',
-          label: 'Mecánicas',
-          position: 'left',
-        },
-        {
-          to: '/docs/desarrolladores/intro',
-          label: 'Desarrolladores',
-          position: 'left',
-        },
-        {
-          href: 'https://github.com/',
-          label: 'GitHub',
-          position: 'right',
-        },
-      ],
+      // items deben quedar VACÍOS para que el override tome control
+      items: [],
     },
 
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'EcoHunt',
           items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
+            { label: 'Sobre el juego', to: '/docs/sobre-el-juego/introduccion' },
+            { label: 'Historia', to: '/docs/historia/overview' },
+            { label: 'Mecánicas', to: '/docs/mecanicas/overview' },
           ],
         },
         {
-          title: 'Community',
+          title: 'Privado',
           items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
+            { label: 'Acceso interno', to: '/internal/login' },
           ],
         },
         {
-          title: 'More',
+          title: 'Redes',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} EcoHunt — Documentación Oficial.`
     },
 
     prism: {
