@@ -1,5 +1,5 @@
 console.log("⚡ OVERRIDE NAVBAR CARGADO");
-
+import ColorModeToggle from "@theme/ColorModeToggle";
 import React, { useContext } from "react";
 import Link from "@docusaurus/Link";
 import { useColorMode } from "@docusaurus/theme-common";
@@ -35,7 +35,7 @@ export default function EcoNavbar() {
     : { label: "Iniciar sesión", action: () => window.location.href = "/internal/login" };
 
   return (
-    <header className="navbar navbar--dark">
+    <header className="navbar">
       <div className="navbar__inner">
 
         {/* IZQUIERDA */}
@@ -63,20 +63,24 @@ export default function EcoNavbar() {
           </a>
 
           {/* MODO CLARO/OSCURO */}
-          <button
-            className="navbar__item navbar__link"
-            onClick={() => setColorMode(isDark ? "light" : "dark")}
-          >
-            {isDark ? "☀️" : "🌙"}
-          </button>
+          <div className="navbar__item">
+            <ColorModeToggle
+              value={colorMode}
+              onChange={(mode) => setColorMode(mode)}
+              respectPrefersColorScheme={false}
+            />
+          </div>
+
+
 
           {/* LOGIN / LOGOUT */}
           <button
-            className="navbar__item navbar__link"
+            className="navbar__item navbar__link ecoNavButton"
             onClick={auth.action}
           >
             {auth.label}
           </button>
+
         </div>
 
       </div>

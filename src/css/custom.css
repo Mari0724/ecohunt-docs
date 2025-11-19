@@ -88,6 +88,32 @@ h1, h2, h3 {
   color: var(--ecohunt-green) !important;
 }
 
+/* ======================================== */
+/*      FIX — MODO CLARO ECOHUNT LIMPIO     */
+/* ======================================== */
+
+html[data-theme='light'] {
+  --ifm-background-color: #ffffff !important;
+  --ifm-background-surface-color: #ffffff !important;
+
+  --ifm-navbar-background-color: #ffffff !important;
+  --ifm-navbar-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+
+  --ifm-font-color-base: #1a1a1a !important;
+
+  --ifm-color-primary: var(--ecohunt-green) !important;
+}
+
+/* links y textos modo claro */
+html[data-theme='light'] a,
+html[data-theme='light'] .navbar__item {
+  color: var(--ecohunt-green-dark) !important;
+}
+
+html[data-theme='light'] a:hover,
+html[data-theme='light'] .navbar__item:hover {
+  color: var(--ecohunt-green) !important;
+}
 
 
 /* ======================================== */
@@ -216,4 +242,26 @@ html[data-theme='dark'] td {
 html[data-theme='dark'] .footer {
   background-color: #0a120e !important;
   color: #ffffff !important;
+}
+
+
+/* ======================================== */
+/*        BOTÓN ESPECIAL NAVBAR LOGIN       */
+/* ======================================== */
+
+.ecoNavButton {
+  background-color: var(--ecohunt-green);
+  color: white !important;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.ecoNavButton:hover {
+  background-color: var(--ecohunt-green-dark);
+  transform: translateY(-1px);
 }

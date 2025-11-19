@@ -1,0 +1,63 @@
+.loginContainer {
+  min-height: 87vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+/* CARD XL */
+.loginCard {
+  background: var(--ifm-card-background-color);
+  padding: 70px;             /* antes 55px */
+  border-radius: 24px;       /* más suave y grande */
+  max-width: 650px;          /* antes 520px */
+  width: 100%;
+  text-align: center;
+  border: 4px solid var(--ecohunt-green-dark);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  animation: fadeIn 0.35s ease-out;
+  transform: translateY(-20px); /* leve ajuste visual */
+}
+
+/* TITULO XL */
+.loginTitle {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 3rem;     /* antes 2.4rem */
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+/* SUBTITULO XL */
+.loginSubtitle {
+  margin-bottom: 40px;
+  font-size: 1.35rem;  /* más grande */
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+/* BOTÓN XL */
+.loginButton {
+  width: 100%;
+  padding: 20px 0;        /* más grueso */
+  font-size: 1.35rem;
+  border-radius: 14px;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MODO OSCURO XL */
+html[data-theme="dark"] .loginCard {
+  background: #102119;
+  border: 4px solid #1f3d31;
+}
