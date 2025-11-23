@@ -148,7 +148,7 @@ html[data-theme='dark'] {
   --ifm-background-surface-color: #111c17;
 
   /* color primario (links/botones) */
-  --ifm-color-primary: var(--ecohunt-blue-light);
+  --ifm-color-primary: var(--ecohunt-green-light);
 
   /* navbar y cards */
   --ifm-navbar-background-color: #0a120e;
@@ -172,15 +172,17 @@ html[data-theme='dark'] .navbar__logo img {
 
 
 /* ------ LINKS ------ */
+/* ------ LINKS MODO OSCURO (TONO SUAVE ECOHUNT) ------ */
 html[data-theme='dark'] .navbar__item,
 html[data-theme='dark'] a {
-  color: #b3dfff !important; /* azul suave */
+  color: var(--ecohunt-soft-light) !important;
 }
 
 html[data-theme='dark'] a:hover {
-  color: var(--ecohunt-blue-light) !important;
-  text-shadow: 0 0 4px rgba(100, 255, 220, 0.3);
+  color: #ffffff !important;
+  text-shadow: 0 0 6px rgba(255, 245, 233, 0.4); /* glow cálido suave */
 }
+
 
 
 

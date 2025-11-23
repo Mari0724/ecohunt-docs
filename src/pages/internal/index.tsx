@@ -1,30 +1,35 @@
 import React, { useContext } from "react";
 import Layout from "@theme/Layout";
 import { AuthContext } from "../../auth/AuthContext";
+import { allowedUsers } from "../../auth/allowedUsers";
 
 export default function InternalHome() {
   const { user, loading } = useContext(AuthContext);
 
-  const allowed = [
-    "ximenadelgadom07@gmail.com",
-    "emiliagalloalzate85@gmail.com"
-  ];
+  if (loading) {
+    return (
+      <Layout>
+        <main style={{ padding: 40, textAlign: "center" }}>
+          <p>Cargando...</p>
+        </main>
+      </Layout>
+    );
+  }
 
-  if (loading) return <p>Cargando...</p>;
-
+  // si NO está autenticado → login
   if (!user) {
     if (typeof window !== "undefined") window.location.href = "/internal/login";
     return null;
   }
 
-  if (!allowed.includes(user.email)) {
-    alert("No tienes permiso para acceder.");
-    if (typeof window !== "undefined") window.location.href = "/internal/login";
+  // si no está en la lista de autorizados → vista no-access
+  if (!allowedUsers.includes(user.email)) {
+    if (typeof window !== "undefined") window.location.href = "/internal/no-access";
     return null;
   }
 
   return (
-    <Layout title="EcoHunt - Interno">
+    <Layout title="Área Interna • EcoHunt">
       <main
         style={{
           minHeight: "100vh",
@@ -34,15 +39,14 @@ export default function InternalHome() {
           color: "white",
         }}
       >
-
-        <h2 style={{ marginBottom: "20px", fontSize: "1.6rem" }}>
+        <h2 style={{ marginBottom: "20px", fontSize: "1.8rem" }}>
           Estás en el Área Interna de Documentación
         </h2>
 
         <img
-          src="/img/logo+nombre.png"
+          src="/img/logo.png"
           alt="EcoHunt Logo"
-          style={{ width: "380px", marginBottom: "20px" }}
+          style={{ width: "300px", marginBottom: "20px" }}
         />
 
         <p style={{ fontSize: "1.3rem", marginBottom: "40px" }}>
@@ -52,7 +56,6 @@ export default function InternalHome() {
         <p style={{ fontSize: "1.1rem", opacity: 0.9 }}>
           Usa el menú superior para navegar por la documentación privada.
         </p>
-
       </main>
     </Layout>
   );

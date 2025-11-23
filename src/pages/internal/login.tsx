@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "@theme/Layout";
 import { auth, githubProvider } from "../../auth/firebase";
 import { signInWithPopup, browserPopupRedirectResolver } from "firebase/auth";
-import styles from "./login.module.css";
+import styles from "../internal/css/login.module.css";
 
 export default function LoginPage() {
   const handleLogin = async () => {

@@ -1,0 +1,59 @@
+/* Fondo general */
+.noAccessPage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(180deg, #4CAF50 0%, #72C74C 45%, #3CB1D3 100%);
+}
+
+/* Card */
+.noAccessCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Título */
+.noAccessTitle {
+  font-family: 'Pixelify Sans', sans-serif;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+/* Texto */
+.noAccessText {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Imagen pixel */
+.noAccessImg {
+  width: 120px;
+  margin-bottom: 20px;
+  image-rendering: pixelated;
+}
+
+/* ========================================================= */
+/*                     MODO OSCURO ECOHUNT                   */
+/* ========================================================= */
+
+html[data-theme='dark'] .noAccessPage {
+  background: linear-gradient(180deg, #0a120e 0%, #0f1e17 45%, #0d2a33 100%);
+}
+
+html[data-theme='dark'] .noAccessCard {
+  background: #15231d;
+  box-shadow: 0px 4px 12px rgba(0,255,170,0.15);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+html[data-theme='dark'] .noAccessTitle,
+html[data-theme='dark'] .noAccessText {
+  color: #ffffff !important;
+}

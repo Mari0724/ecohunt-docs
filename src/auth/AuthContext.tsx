@@ -1,11 +1,12 @@
-// src/auth/AuthContext.tsx
 import { createContext, useState, useEffect } from "react";
 import { auth } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { allowedUsers } from "./allowedUsers";   
 
 export const AuthContext = createContext({
   user: null,
   loading: true,
+  allowedUsers: [],
 });
 
 export function AuthProvider({ children }) {
@@ -22,7 +23,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loading }}>
+    <AuthContext.Provider value={{ user, loading, allowedUsers }}>
       {children}
     </AuthContext.Provider>
   );
