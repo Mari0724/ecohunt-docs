@@ -1,19 +1,22 @@
-console.log("⚡ OVERRIDE NAVBAR CARGADO");
+console.log("⚡ NAVBAR OVERRIDE CARGADO");
+
 import ColorModeToggle from "@theme/ColorModeToggle";
 import React, { useContext } from "react";
 import Link from "@docusaurus/Link";
 import { useColorMode } from "@docusaurus/theme-common";
 import { AuthContext } from "../../auth/AuthContext";
 import { githubLogout } from "../../auth/firebase";
+import { allowedUsers } from "../../auth/allowedUsers";
 
 export default function EcoNavbar() {
   const { user, loading } = useContext(AuthContext);
   const { colorMode, setColorMode } = useColorMode();
 
-  const isDark = colorMode === "dark";
-
   if (loading) return null;
 
+  const isAllowed = user && allowedUsers.includes(user.email);
+
+  // 🔵 Públicos
   const publicItems = [
     { label: "Sobre el juego", to: "/docs/sobre-el-juego/introduccion" },
     { label: "Historia", to: "/docs/historia/overview" },
@@ -21,6 +24,7 @@ export default function EcoNavbar() {
     { label: "Desarrolladores", to: "/docs/desarrolladores/intro" },
   ];
 
+  // 🔴 Internos (solo si isAllowed)
   const internalItems = [
     { label: "Narrativa", to: "/docs/internal-docs/narrativa/narrativa-y-mecanicas" },
     { label: "Marketing", to: "/docs/internal-docs/marketing" },
@@ -28,7 +32,11 @@ export default function EcoNavbar() {
     { label: "Diseño", to: "/docs/internal-docs/diseño" },
   ];
 
-  const items = user ? internalItems : publicItems;
+  // 👑 Lógica correcta:
+  // - NO autenticado → solo públicos
+  // - Autenticado PERO no permitido → solo públicos
+  // - Autenticado + permitido → internos
+  const items = isAllowed ? [...publicItems, ...internalItems] : publicItems;
 
   const auth = user
     ? { label: "Cerrar sesión", action: async () => { await githubLogout(); window.location.href = "/"; } }
@@ -54,6 +62,7 @@ export default function EcoNavbar() {
 
         {/* DERECHA */}
         <div className="navbar__items navbar__items--right">
+
           <a
             className="navbar__item navbar__link"
             href="https://github.com/"
@@ -62,7 +71,7 @@ export default function EcoNavbar() {
             GitHub
           </a>
 
-          {/* MODO CLARO/OSCURO */}
+          {/* MODO OSCURO */}
           <div className="navbar__item">
             <ColorModeToggle
               value={colorMode}
@@ -71,8 +80,6 @@ export default function EcoNavbar() {
             />
           </div>
 
-
-
           {/* LOGIN / LOGOUT */}
           <button
             className="navbar__item navbar__link ecoNavButton"
@@ -80,9 +87,7 @@ export default function EcoNavbar() {
           >
             {auth.label}
           </button>
-
         </div>
-
       </div>
     </header>
   );

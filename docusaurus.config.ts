@@ -7,9 +7,7 @@ const config: Config = {
   tagline: "Una aventura educativa sobre reciclaje y sostenibilidad",
   favicon: "img/favicon.ico",
 
-  future: {
-    v4: true,
-  },
+  future: { v4: true },
 
   url: "https://your-docusaurus-site.example.com",
   baseUrl: "/",
@@ -55,7 +53,7 @@ const config: Config = {
         alt: "EcoHunt Logo",
         src: "img/logo.png",
       },
-      items: [],
+      items: [  ],
     },
 
     footer: {
