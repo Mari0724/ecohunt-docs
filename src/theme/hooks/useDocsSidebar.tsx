@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+/*import React, { useContext } from "react";
 import OriginalUseDocsSidebar from "@theme-original/hooks/useDocsSidebar";
 import { AuthContext } from "../../auth/AuthContext";
 import { allowedUsers } from "../../auth/allowedUsers";
@@ -39,4 +39,4 @@ export default function useDocsSidebar(...args) {
     ...sidebar,
     items: filter(sidebar.items),
   };
-}
+}*/

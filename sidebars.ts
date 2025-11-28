@@ -2,12 +2,14 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   mainSidebar: [
+    // --- CATEGORÍAS PÚBLICAS (Ajustadas a los IDs disponibles) ---
     {
       type: 'category',
       label: 'Sobre el juego',
       collapsed: false,
       items: [
-        'sobre_el_juego/introduccion',
+        'sobre_el_juego/index',        // ✅ Disponible
+        // 'sobre_el_juego/introduccion', // ❌ Eliminado: ¡Causa el error!
       ],
     },
     {
@@ -15,7 +17,8 @@ const sidebars: SidebarsConfig = {
       label: 'Historia',
       collapsed: false,
       items: [
-        'historia/overview',
+        'historia/index', // ✅ Disponible
+        // 'historia/overview', // ❌ Eliminado: ¡Causa el error!
       ],
     },
     {
@@ -23,7 +26,8 @@ const sidebars: SidebarsConfig = {
       label: 'Mecánicas',
       collapsed: false,
       items: [
-        'mecanicas/overview',
+        'mecanicas/index', // ✅ Disponible
+        // 'mecanicas/overview', // ❌ Eliminado: ¡Causa el error!
       ],
     },
     {
@@ -31,8 +35,44 @@ const sidebars: SidebarsConfig = {
       label: 'Desarrolladores',
       collapsed: false,
       items: [
-        'desarrolladores/intro',
+        'desarrolladores/index', // ✅ Disponible
+        'desarrolladores/intro', // ✅ Disponible
       ],
+    },
+
+    // --- CATEGORÍAS INTERNAS (Estas ya están correctas según el log) ---
+    {
+      type: 'category',
+      label: 'Diseño', 
+      items: ['internal-docs/diseño/index'],
+    },
+    {
+      type: 'category',
+      label: 'Marketing', 
+      items: ['internal-docs/marketing/index'],
+    },
+    {
+      type: 'category',
+      label: 'Narrativa', 
+      items: [
+        'internal-docs/narrativa/index', 
+        'internal-docs/narrativa/narrativa-y-mecanicas',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Niveles', 
+      items: ['internal-docs/niveles/index'],
+    },
+    {
+      type: 'category',
+      label: 'Planificación',
+      items: ['internal-docs/planificacion/index'],
+    },
+    {
+      type: 'category',
+      label: 'Prompts',
+      items: ['internal-docs/prompts/index'],
     },
   ],
 };

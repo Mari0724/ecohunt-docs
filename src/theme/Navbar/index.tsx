@@ -1,12 +1,51 @@
 console.log("⚡ NAVBAR OVERRIDE CARGADO");
 
-import ColorModeToggle from "@theme/ColorModeToggle";
 import React, { useContext } from "react";
 import Link from "@docusaurus/Link";
+import ColorModeToggle from "@theme/ColorModeToggle";
+
+// 💡 Importamos los hooks necesarios de Docusaurus.
 import { useColorMode } from "@docusaurus/theme-common";
+import { useNavbarMobileSidebar } from "@docusaurus/theme-common/internal"; 
+
 import { AuthContext } from "../../auth/AuthContext";
 import { githubLogout } from "../../auth/firebase";
 import { allowedUsers } from "../../auth/allowedUsers";
+
+// --- Componente interno para el Toggle (Botón de Hamburguesa) ---
+// Recreamos el componente usando el hook oficial que sí está expuesto.
+function MobileNavbarToggle() {
+  const mobileSidebar = useNavbarMobileSidebar();
+  
+  return (
+    <button
+      aria-label="Abrir menú de navegación"
+      aria-expanded={mobileSidebar.shown}
+      className="navbar__toggle clean-btn"
+      type="button"
+      onClick={mobileSidebar.toggle}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        viewBox="0 0 30 30"
+        role="img"
+        focusable="false"
+      >
+        <title>Menú</title>
+        <path
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+          d="M4 7h22M4 15h22M4 23h22"
+        />
+      </svg>
+    </button>
+  );
+}
+// ------------------------------------------
 
 export default function EcoNavbar() {
   const { user, loading } = useContext(AuthContext);
@@ -16,7 +55,6 @@ export default function EcoNavbar() {
 
   const isAllowed = user && allowedUsers.includes(user.email);
 
-  // 🔵 Públicos
   const publicItems = [
     { label: "Sobre el juego", to: "/docs/sobre-el-juego/introduccion" },
     { label: "Historia", to: "/docs/historia/overview" },
@@ -24,7 +62,6 @@ export default function EcoNavbar() {
     { label: "Desarrolladores", to: "/docs/desarrolladores/intro" },
   ];
 
-  // 🔴 Internos (solo si isAllowed)
   const internalItems = [
     { label: "Narrativa", to: "/docs/internal-docs/narrativa/narrativa-y-mecanicas" },
     { label: "Marketing", to: "/docs/internal-docs/marketing" },
@@ -32,10 +69,6 @@ export default function EcoNavbar() {
     { label: "Diseño", to: "/docs/internal-docs/diseño" },
   ];
 
-  // 👑 Lógica correcta:
-  // - NO autenticado → solo públicos
-  // - Autenticado PERO no permitido → solo públicos
-  // - Autenticado + permitido → internos
   const items = isAllowed ? [...publicItems, ...internalItems] : publicItems;
 
   const auth = user
@@ -46,13 +79,16 @@ export default function EcoNavbar() {
     <header className="navbar">
       <div className="navbar__inner">
 
-        {/* IZQUIERDA */}
-        <div className="navbar__items">
+        {/* IZQUIERDA → hamburguesa + logo + LINKS DE NAVEGACIÓN */}
+        <div className="navbar__items navbar__items--left">
+          <MobileNavbarToggle /> {/* Usamos el componente creado */}
+          
           <Link className="navbar__brand" to="/">
             <img src="/img/logo.png" className="navbar__logo" />
             <b className="navbar__title">EcoHunt</b>
           </Link>
 
+          {/* 🎯 CORRECCIÓN DE LAYOUT: Los ITEMS DE NAVEGACIÓN están aquí */}
           {items.map((item) => (
             <Link key={item.label} className="navbar__item navbar__link" to={item.to}>
               {item.label}
@@ -60,27 +96,20 @@ export default function EcoNavbar() {
           ))}
         </div>
 
-        {/* DERECHA */}
-        <div className="navbar__items navbar__items--right">
+        {/* ❌ ELIMINADA LA SECCIÓN CENTRAL VACÍA */}
 
-          <a
-            className="navbar__item navbar__link"
-            href="https://github.com/"
-            target="_blank"
-          >
+        {/* DERECHA (GitHub, ColorMode, Auth Button) */}
+        <div className="navbar__items navbar__items--right">
+          <a className="navbar__item navbar__link" href="https://github.com/" target="_blank">
             GitHub
           </a>
 
-          {/* MODO OSCURO */}
-          <div className="navbar__item">
-            <ColorModeToggle
-              value={colorMode}
-              onChange={(mode) => setColorMode(mode)}
-              respectPrefersColorScheme={false}
-            />
-          </div>
+          <ColorModeToggle
+            value={colorMode}
+            onChange={setColorMode}
+            respectPrefersColorScheme={false}
+          />
 
-          {/* LOGIN / LOGOUT */}
           <button
             className="navbar__item navbar__link ecoNavButton"
             onClick={auth.action}

@@ -2,7 +2,11 @@
   // This file is not used in compilation. It is here just for a nice editor experience.
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    
+    // 💡 AÑADE ESTAS LÍNEAS 💡
+    "jsx": "react-jsx", // Indica el estándar moderno de React para JSX
+    "skipLibCheck": true // Ayuda a evitar conflictos de tipos con dependencias (como @theme-original)
   },
   "exclude": [".docusaurus", "build"]
 }
