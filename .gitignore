@@ -23,5 +23,3 @@ Thumbs.db
 .env.local
 .env.*.local
 
-# Private docs
-internal-docs/

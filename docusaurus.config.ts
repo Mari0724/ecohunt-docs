@@ -53,7 +53,39 @@ const config: Config = {
         alt: "EcoHunt Logo",
         src: "img/logo.png",
       },
-      items: [  ],
+      items: [
+        // --- LINKS PÚBLICOS ---
+        { label: "Sobre el juego", to: "/docs/sobre-el-juego/introduccion", position: "left" },
+        { label: "Historia", to: "/docs/historia/overview", position: "left" },
+        { label: "Mecánicas", to: "/docs/mecanicas/overview", position: "left" },
+        { label: "Desarrolladores", to: "/docs/desarrolladores/intro", position: "left" },
+
+        // --- LINKS PRIVADOS (Usamos 'className' para identificarlos y filtrarlos) ---
+        { 
+          label: "Narrativa", 
+          to: "/docs/internal-docs/narrativa/narrativa-y-mecanicas", 
+          position: "left", 
+          className: "internal-link" 
+        },
+        { 
+          label: "Marketing", 
+          to: "/docs/internal-docs/marketing", 
+          position: "left", 
+          className: "internal-link" 
+        },
+        { 
+          label: "Niveles", 
+          to: "/docs/internal-docs/niveles", 
+          position: "left", 
+          className: "internal-link" 
+        },
+        { 
+          label: "Diseño", 
+          to: "/docs/internal-docs/diseño", 
+          position: "left", 
+          className: "internal-link" 
+        },
+      ],
     },
 
     footer: {
