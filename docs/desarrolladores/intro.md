@@ -1,7 +1,6 @@
 ---
 title: "Equipo de Desarrollo"
 sidebar_label: "Desarrolladores"
-sidebar: publicSidebar
 description: "Información pública sobre los creadores del proyecto EcoHunt."
 ---
 
