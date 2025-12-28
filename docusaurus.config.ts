@@ -27,7 +27,7 @@ const config: Config = {
       "classic",
       {
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: require.resolve("./sidebars.ts"),
           routeBasePath: "/docs",
         },
 
