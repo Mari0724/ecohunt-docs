@@ -9,11 +9,11 @@ const config: Config = {
 
   future: { v4: true },
 
-  url: "https://your-docusaurus-site.example.com",
-  baseUrl: "/",
+  url: 'https://mari0724.github.io',
+  baseUrl: '/ecohunt-docs/',
 
-  organizationName: "facebook",
-  projectName: "docusaurus",
+  organizationName: 'Mari0724',
+  projectName: 'ecohunt-docs',
 
   onBrokenLinks: "throw",
 
@@ -55,33 +55,33 @@ const config: Config = {
       },
       items: [
         // --- LINKS PÚBLICOS ---
-        { label: "Sobre el juego", to: "/docs/sobre-el-juego/introduccion", position: "left" },
-        { label: "Historia", to: "/docs/historia/overview", position: "left" },
-        { label: "Mecánicas", to: "/docs/mecanicas/overview", position: "left" },
-        { label: "Desarrolladores", to: "/docs/desarrolladores/intro", position: "left" },
+        { label: "Sobre el juego", to: "/docs/sobre-el-juego" },
+        { label: "Historia", to: "/docs/historia" },
+        { label: "Mecánicas", to: "/docs/mecanicas" },
+        { label: "Desarrolladores", to: "/docs/desarrolladores" },
 
         // --- LINKS PRIVADOS (Usamos 'className' para identificarlos y filtrarlos) ---
         { 
           label: "Narrativa", 
-          to: "/docs/internal-docs/narrativa/narrativa-y-mecanicas", 
+          to: "/docs/internal-docs/narrativa/narrativa", 
           position: "left", 
           className: "internal-link" 
         },
         { 
           label: "Marketing", 
-          to: "/docs/internal-docs/marketing", 
+          to: "/docs/internal-docs/marketing/marketing", 
           position: "left", 
           className: "internal-link" 
         },
         { 
           label: "Niveles", 
-          to: "/docs/internal-docs/niveles", 
+          to: "/docs/internal-docs/niveles/niveles", 
           position: "left", 
           className: "internal-link" 
         },
         { 
           label: "Diseño", 
-          to: "/docs/internal-docs/diseño", 
+          to: "/docs/internal-docs/diseño/diseno", 
           position: "left", 
           className: "internal-link" 
         },
@@ -94,14 +94,15 @@ const config: Config = {
         {
           title: "EcoHunt",
           items: [
-            { label: "Sobre el juego", to: "/docs/sobre_el_juego/introduccion" },
-            { label: "Historia", to: "/docs/historia/overview" },
-            { label: "Mecánicas", to: "/docs/mecanicas/overview" },
+            { label: "Sobre el juego", to: "/docs/sobre-el-juego" },
+            { label: "Historia", to: "/docs/historia" },
+            { label: "Mecánicas", to: "/docs/mecanicas" },
+            { label: "Desarrolladores", to: "/docs/desarrolladores" },
           ],
         },
         {
           title: "Privado",
-          items: [{ label: "Acceso interno", to: "/internal/login" }],
+          items: [{ label: "Acceso interno", to: "/ecohunt-docs/internal/login" }],
         },
         {
           title: "Redes", // Espacio listo para cuando lances el juego

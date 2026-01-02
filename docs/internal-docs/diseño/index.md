@@ -1,7 +1,7 @@
 ---
-title: "Diseño de personajes"
-sidebar_label: "Diseño de personajes"
-description: "Información privada sobre los personajes del proyecto EcoHunt."
+id: diseno
+title: Diseño del juego
+sidebar_label: Diseño
 ---
 
 bla bla bla

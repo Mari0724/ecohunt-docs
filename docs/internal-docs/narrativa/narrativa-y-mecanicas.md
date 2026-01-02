@@ -1,7 +1,7 @@
 ---
-title: "narrativas y mecanicas"
-sidebar_label: "narrativas y mecanicas"
-description: "Información privada sobre la narrativa del proyecto EcoHunt."
+id: narrativa
+title: Narrativa y mecánicas
+sidebar_label: Narrativa
 ---
 
 bla bla bla

@@ -1,7 +1,7 @@
 ---
-title: "Niveles"
-sidebar_label: "Niveles"
-description: "Información privada sobre los niveles del proyecto EcoHunt."
+id: niveles
+title: Diseño de niveles
+sidebar_label: Niveles
 ---
 
 bla bla bla

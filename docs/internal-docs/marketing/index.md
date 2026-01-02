@@ -1,7 +1,7 @@
 ---
-title: "Marketing"
-sidebar_label: "Marketing"
-description: "Información privada sobre las campañas de promocion del proyecto EcoHunt."
+id: marketing
+title: Marketing
+sidebar_label: Marketing
 ---
 
 bla bla bla

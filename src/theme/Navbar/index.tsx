@@ -18,24 +18,24 @@ export default function EcoNavbar() {
   const isAllowed = user && allowedUsers.includes(user.email);
 
   const publicItems = [
-    { label: "Sobre el juego", to: "/docs/sobre-el-juego/introduccion" },
-    { label: "Historia", to: "/docs/historia/overview" },
-    { label: "Mecánicas", to: "/docs/mecanicas/overview" },
-    { label: "Desarrolladores", to: "/docs/desarrolladores/intro" },
+    { label: "Sobre el juego", to: "/docs/sobre-el-juego" },
+    { label: "Historia", to: "/docs/historia" },
+    { label: "Mecánicas", to: "/docs/mecanicas" },
+    { label: "Desarrolladores", to: "/docs/desarrolladores" },
   ];
 
   const internalItems = [
-    { label: "Narrativa", to: "/docs/internal-docs/narrativa/narrativa-y-mecanicas" },
-    { label: "Marketing", to: "/docs/internal-docs/marketing" },
-    { label: "Niveles", to: "/docs/internal-docs/niveles" },
-    { label: "Diseño", to: "/docs/internal-docs/diseño" },
+    { label: "Narrativa", to: "/docs/internal-docs/narrativa/narrativa" },
+    { label: "Marketing", to: "/docs/internal-docs/marketing/marketing" },
+    { label: "Niveles", to: "/docs/internal-docs/niveles/niveles" },
+    { label: "Diseño", to: "/docs/internal-docs/diseño/diseno" },
   ];
 
   const items = isAllowed ? [...publicItems, ...internalItems] : publicItems;
 
   const auth = user
     ? { label: "Cerrar sesión", action: async () => { await githubLogout(); window.location.href = "/"; } }
-    : { label: "Iniciar sesión", action: () => window.location.href = "/internal/login" };
+    : { label: "Iniciar sesión", action: () => window.location.href = "/ecohunt-docs/internal/login" };
 
   // 👈 Envolvemos TODO en NavbarLayout para que el Toggle funcione
   return (
