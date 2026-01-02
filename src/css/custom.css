@@ -267,3 +267,28 @@ html[data-theme='dark'] .footer {
   background-color: var(--ecohunt-green-dark);
   transform: translateY(-1px);
 }
+
+
+/* ======================================== */
+/* FILTRO PÚBLICO PARA MÓVIL           */
+/* ======================================== */
+
+/* Se activa en pantallas menores a 997px (Celulares y Tablets) */
+@media (max-width: 996px) {
+  
+  /* 1. Oculta los botones del menú de hamburguesa con clase internal-link */
+  .internal-link {
+    display: none !important;
+  }
+
+  /* 2. Oculta las categorías privadas en la barra lateral por su etiqueta */
+  /* Esto es un refuerzo visual infalible para el modo móvil */
+  .menu__list-item .menu__link[label="Narrativa"],
+  .menu__list-item .menu__link[label="Marketing"],
+  .menu__list-item .menu__link[label="Niveles"],
+  .menu__list-item .menu__link[label="Diseño"],
+  .menu__list-item .menu__link[label="Planificación"],
+  .menu__list-item .menu__link[label="Prompts"] {
+    display: none !important;
+  }
+}

@@ -7,17 +7,24 @@ export default function DocSidebarWrapper(props) {
   const { user, loading } = useContext(AuthContext);
   const isAllowed = user && allowedUsers.includes(user.email || "");
 
+  // Mientras carga la sesión, no mostramos nada para evitar que lo privado
+  // "parpadee" un segundo antes de ocultarse.
   if (loading) return null;
 
-  // Si no está permitido, filtramos las categorías antes de que Docusaurus las dibuje
+  // Si eres tú (admin logueada), te entregamos la barra original sin filtros.
+  if (isAllowed) {
+    return <DocSidebarOriginal {...props} />;
+  }
+
+  // --- LÓGICA PARA EL PÚBLICO (No logueados) ---
   const privateLabels = ['Narrativa', 'Marketing', 'Niveles', 'Diseño', 'Planificación', 'Prompts'];
 
-  const filteredSidebar = props.sidebar.filter(item => {
-    if (item.type === 'category' && privateLabels.includes(item.label)) {
-      return isAllowed; // Solo devolver true si isAllowed es true
-    }
-    return true;
+  // Filtramos el array de la sidebar para quitar las categorías privadas
+  const publicSidebar = props.sidebar.filter(item => {
+    // Si el nombre de la categoría está en nuestra lista negra, la quitamos (false)
+    return !privateLabels.includes(item.label);
   });
 
-  return <DocSidebarOriginal {...props} sidebar={filteredSidebar} />;
+  // Retornamos la versión original de la barra pero solo con los items públicos
+  return <DocSidebarOriginal {...props} sidebar={publicSidebar} />;
 }
