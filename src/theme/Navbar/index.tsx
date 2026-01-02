@@ -8,6 +8,7 @@ import { useColorMode } from "@docusaurus/theme-common";
 import { AuthContext } from "../../auth/AuthContext";
 import { githubLogout } from "../../auth/firebase";
 import { allowedUsers } from "../../auth/allowedUsers";
+import { BASE } from "../config/baseUrl";
 
 export default function EcoNavbar() {
   const { user, loading } = useContext(AuthContext);
@@ -35,7 +36,7 @@ export default function EcoNavbar() {
 
   const auth = user
     ? { label: "Cerrar sesión", action: async () => { await githubLogout(); window.location.href = "/"; } }
-    : { label: "Iniciar sesión", action: () => window.location.href = "/ecohunt-docs/internal/login" };
+    : { label: "Iniciar sesión", action: () => window.location.href = `${BASE}/internal/login` };
 
   // 👈 Envolvemos TODO en NavbarLayout para que el Toggle funcione
   return (

@@ -11,7 +11,7 @@ export default function PrivateRoute({ children }) {
   // No está logueado → enviar al login
   if (!user) {
     if (typeof window !== "undefined") {
-      window.location.replace("/internal/login");
+      window.location.replace("/ecohunt-docs/internal/login");
     }
     return null;
   }
@@ -19,7 +19,7 @@ export default function PrivateRoute({ children }) {
   // Está logueado pero NO tiene acceso
   if (!allowedUsers.includes(user.email)) {
     if (typeof window !== "undefined") {
-      window.location.replace("/internal/no-access");
+      window.location.replace("/ecohunt-docs/internal/no-access");
     }
     return null;
   }
