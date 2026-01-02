@@ -57,10 +57,6 @@ export default function EcoNavbar() {
         </div>
 
         <div className="navbar__items navbar__items--right">
-          <a className="navbar__item navbar__link hide-on-mobile" href="https://github.com/" target="_blank">
-            GitHub
-          </a>
-
           <div className="navbar__item">
             <ColorModeToggle
               value={colorMode}

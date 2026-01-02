@@ -94,7 +94,7 @@ const config: Config = {
         {
           title: "EcoHunt",
           items: [
-            { label: "Sobre el juego", to: "/docs/sobre-el-juego/introduccion" },
+            { label: "Sobre el juego", to: "/docs/sobre_el_juego/introduccion" },
             { label: "Historia", to: "/docs/historia/overview" },
             { label: "Mecánicas", to: "/docs/mecanicas/overview" },
           ],
@@ -104,8 +104,13 @@ const config: Config = {
           items: [{ label: "Acceso interno", to: "/internal/login" }],
         },
         {
-          title: "Redes",
-          items: [{ label: "GitHub", href: "https://github.com/" }],
+          title: "Redes", // Espacio listo para cuando lances el juego
+          items: [
+            { label: "Instagram", href: "https://instagram.com/" },
+            { label: "TikTok", href: "https://tiktok.com/" },
+            { label: "YouTube", href: "https://youtube.com/" },
+            { label: "Discord", href: "https://discord.com/" },
+          ],
         },
       ],
       copyright: `© ${new Date().getFullYear()} EcoHunt — Documentación Oficial.`,
