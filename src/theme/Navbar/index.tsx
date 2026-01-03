@@ -27,11 +27,12 @@ export default function EcoNavbar() {
   ];
 
   const internalItems = [
-    { label: "Narrativa", to: "/docs/internal-docs/narrativa/narrativa" },
-    { label: "Marketing", to: "/docs/internal-docs/marketing/marketing" },
-    { label: "Niveles", to: "/docs/internal-docs/niveles/niveles" },
-    { label: "Diseño", to: "/docs/internal-docs/diseño/diseno" },
+    { label: "Narrativa", to: useBaseUrl("docs/internal-docs/narrativa/narrativa") },
+    { label: "Marketing", to: useBaseUrl("docs/internal-docs/marketing/marketing") },
+    { label: "Niveles", to: useBaseUrl("docs/internal-docs/niveles/niveles") },
+    { label: "Diseño", to: useBaseUrl("docs/internal-docs/diseño/diseno") },
   ];
+
 
   const items = isAllowed ? [...publicItems, ...internalItems] : publicItems;
 
