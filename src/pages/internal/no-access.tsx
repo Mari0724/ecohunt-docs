@@ -8,6 +8,9 @@ import "../internal/css/no-access.css";
 export default function NoAccessPage() {
   const { user } = useContext(AuthContext);
 
+  const homeUrl = useBaseUrl("/");
+  const loginUrl = useBaseUrl("/internal/login");
+
   return (
     <Layout title="Acceso denegado">
       <main className="noAccessPage">
@@ -31,7 +34,7 @@ export default function NoAccessPage() {
               className="button button--primary button--lg"
               onClick={async () => {
                 await githubLogout();
-                window.location.href = "/";
+                window.location.href = homeUrl;
               }}
             >
               Cerrar sesión
@@ -39,7 +42,9 @@ export default function NoAccessPage() {
           ) : (
             <button
               className="button button--primary button--lg"
-              onClick={() => (window.location.href = "/internal/login")}
+              onClick={() => {
+                window.location.href = loginUrl;
+              }}
             >
               Iniciar sesión
             </button>

@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import OriginalLayout from "@theme-original/Layout";
 import { AuthContext } from "../../auth/AuthContext";
 import { allowedUsers } from "../../auth/allowedUsers";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 export default function LayoutWrapper(props) {
   const { user, loading } = useContext(AuthContext);
@@ -11,21 +12,24 @@ export default function LayoutWrapper(props) {
 
   const isInternal = pathname.startsWith("/docs/internal-docs");
 
+  const loginUrl = useBaseUrl("/internal/login");
+  const noAccessUrl = useBaseUrl("/internal/no-access");
+
   // ⏳ Mientras carga Firebase
   if (loading) return null;
 
-  // ❌ Si la página es interna pero NO hay login
+  // ❌ Página interna sin login
   if (isInternal && !user) {
     if (typeof window !== "undefined") {
-      window.location.replace("/internal/login");
+      window.location.replace(loginUrl);
     }
     return null;
   }
 
-  // ❌ Si hay login pero NO tiene permisos
+  // ❌ Logueado pero sin permisos
   if (isInternal && !allowedUsers.includes(user.email)) {
     if (typeof window !== "undefined") {
-      window.location.replace("/internal/no-access");
+      window.location.replace(noAccessUrl);
     }
     return null;
   }
