@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './index.module.css';
 
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
       <main className={styles.heroSection}>
         <div className={styles.container}>
           <img
-            src="/img/logo+nombre.png"
+            src={useBaseUrl('/img/logo+nombre.png')}
             alt="EcoHunt Logo"
             className={styles.heroLogo}
           />
@@ -22,11 +23,11 @@ export default function Home() {
           </p>
 
           <div className={styles.buttons}>
-            <Link className="button button--lg" to="/docs/sobre-el-juego/introduccion">
+            <Link className="button button--lg" to="/docs/sobre-el-juego">
               Empezar
             </Link>
 
-            <Link className="button button--secondary button--lg" to="/docs/historia/overview">
+            <Link className="button button--secondary button--lg" to="/docs/historia">
               Historia del juego
             </Link>
           </div>

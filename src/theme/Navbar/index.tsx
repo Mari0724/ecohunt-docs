@@ -8,7 +8,8 @@ import { useColorMode } from "@docusaurus/theme-common";
 import { AuthContext } from "../../auth/AuthContext";
 import { githubLogout } from "../../auth/firebase";
 import { allowedUsers } from "../../auth/allowedUsers";
-import { BASE } from "../config/baseUrl";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import { BASE } from "../../config/baseUrl";
 
 export default function EcoNavbar() {
   const { user, loading } = useContext(AuthContext);
@@ -46,7 +47,11 @@ export default function EcoNavbar() {
           <NavbarMobileSidebarToggle /> 
 
           <Link className="navbar__brand" to="/">
-            <img src="/img/logo.png" className="navbar__logo" alt="Logo" />
+            <img
+              src={useBaseUrl("/img/Logo.png")}
+              className="navbar__logo"
+              alt="EcoHunt"
+            />
             <b className="navbar__title">EcoHunt</b>
           </Link>
 

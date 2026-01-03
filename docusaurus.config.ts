@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "EcoHunt",
   tagline: "Una aventura educativa sobre reciclaje y sostenibilidad",
-  favicon: "img/favicon.ico",
+  favicon: "img/Logo.png",
 
   future: { v4: true },
 
@@ -39,7 +39,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/Logo.png",
 
     colorMode: {
       respectPrefersColorScheme: false,
@@ -51,7 +51,7 @@ const config: Config = {
       title: "EcoHunt",
       logo: {
         alt: "EcoHunt Logo",
-        src: "img/logo.png",
+        src: "img/Logo.png",
       },
       items: [
         // --- LINKS PÚBLICOS ---

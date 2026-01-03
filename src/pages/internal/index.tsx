@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Layout from "@theme/Layout";
 import { AuthContext } from "../../auth/AuthContext";
 import { allowedUsers } from "../../auth/allowedUsers";
+import { BASE } from "../../config/baseUrl";
 
 export default function InternalHome() {
   const { user, loading } = useContext(AuthContext);
@@ -16,15 +17,19 @@ export default function InternalHome() {
     );
   }
 
-  // si NO está autenticado → login
+  // ❌ No autenticado → login
   if (!user) {
-    if (typeof window !== "undefined") window.location.href = "/internal/login";
+    if (typeof window !== "undefined") {
+      window.location.href = `${BASE}/internal/login`;
+    }
     return null;
   }
 
-  // si no está en la lista de autorizados → vista no-access
+  // ❌ No autorizado → no-access
   if (!allowedUsers.includes(user.email)) {
-    if (typeof window !== "undefined") window.location.href = "/internal/no-access";
+    if (typeof window !== "undefined") {
+      window.location.href = `${BASE}/internal/no-access`;
+    }
     return null;
   }
 
@@ -35,7 +40,8 @@ export default function InternalHome() {
           minHeight: "100vh",
           padding: "80px 20px",
           textAlign: "center",
-          background: "linear-gradient(180deg, #4CAF50, #72C74C 35%, #3CB1D3 100%)",
+          background:
+            "linear-gradient(180deg, #4CAF50, #72C74C 35%, #3CB1D3 100%)",
           color: "white",
         }}
       >
@@ -44,7 +50,7 @@ export default function InternalHome() {
         </h2>
 
         <img
-          src="/img/logo.png"
+          src={`${BASE}/img/Logo.png`}
           alt="EcoHunt Logo"
           style={{ width: "300px", marginBottom: "20px" }}
         />
